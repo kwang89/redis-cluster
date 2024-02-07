@@ -1,0 +1,73 @@
+version: '3'
+services:
+  redis-master-1:
+    container_name: redis-master-1
+    network_mode: host
+    image: redis:7.2.4
+    command: redis-server /usr/local/etc/redis/redis.conf
+    volumes:
+      - ./conf/redis-7000.conf:/usr/local/etc/redis/redis.conf
+    restart: always
+    ports:
+      - 7000:7000
+      - 17000:17000
+
+  redis-master-2:
+    container_name: redis-master-2
+    network_mode: host
+    image: redis:7.2.4
+    command: redis-server /usr/local/etc/redis/redis.conf
+    volumes:
+      - ./conf/redis-7001.conf:/usr/local/etc/redis/redis.conf
+    restart: always
+    ports:
+      - 7001:7001
+      - 17001:17001
+
+  redis-master-3:
+    container_name: redis-master-3
+    network_mode: host
+    image: redis:7.2.4
+    command: redis-server /usr/local/etc/redis/redis.conf
+    volumes:
+      - ./conf/redis-7002.conf:/usr/local/etc/redis/redis.conf
+    restart: always
+    ports:
+      - 7002:7002
+      - 17002:17002
+
+  redis-slave-1:
+    container_name: redis-slave-1
+    network_mode: host
+    image: redis:7.2.4
+    command: redis-server /usr/local/etc/redis/redis.conf
+    volumes:
+      - ./conf/redis-7003.conf:/usr/local/etc/redis/redis.conf
+    restart: always
+    ports:
+      - 7003:7003
+      - 17003:17003
+
+  redis-slave-2:
+    container_name: redis-slave-2
+    network_mode: host
+    image: redis:7.2.4
+    command: redis-server /usr/local/etc/redis/redis.conf
+    volumes:
+      - ./conf/redis-7004.conf:/usr/local/etc/redis/redis.conf
+    restart: always
+    ports:
+      - 7004:7004
+      - 17004:17004
+
+  redis-slave-3:
+    container_name: redis-slave-3
+    network_mode: host
+    image: redis:7.2.4
+    command: redis-server /usr/local/etc/redis/redis.conf
+    volumes:
+      - ./conf/redis-7005.conf:/usr/local/etc/redis/redis.conf
+    restart: always
+    ports:
+      - 7005:7005
+      - 17005:17005
